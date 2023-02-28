@@ -1,6 +1,6 @@
 test Pravidla
 
-Nejaka zmena
+Nejaka zmena @
 
 <style>
 	.box {
