@@ -82,7 +82,7 @@
 	<p>{cinitel1}*{cinitel2}</p>
 </div>
 
-<input bind:value={vysledek2} type="number" />
+<input bind:value={vysledek2} type="number" on:keydown={kontrola}/>
 
 <button class="tlacitko" on:click={kontrola}>Kontrola</button>
 
@@ -143,5 +143,6 @@ Počet bodů
 	}
 	.zadani {
 		display: flex;
+		font-size: 30px;
 	}
 </style>
