@@ -54,6 +54,7 @@
 		zobrazeniKontroly = 0
 		cinitel1 = Math.floor(Math.random() * 10 + 1);
 		cinitel2 = Math.floor(Math.random() * 10 + 1);
+		vysledek2 = 0
 	}
 </script>
 
@@ -85,7 +86,7 @@
 
 <button class="tlacitko" on:click={kontrola}>Kontrola</button>
 
-{#if zobrazeniKontroly = 1}
+{#if zobrazeniKontroly == 1}
 
 	{#if cinitel1 * cinitel2 == vysledek2}
 		<p class="green">správně</p>
