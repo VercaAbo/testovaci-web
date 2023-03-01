@@ -8,6 +8,8 @@
 	let cinitel2 = Math.floor(Math.random() * 10 + 1);
 	let vysledek2 = 0;
 	let body = 0;
+	let zobrazeniKontroly = 0;
+	let stopky = setTimeout(() => {}, 0);
 
 	// funkce
 	function soucet() {
@@ -30,17 +32,28 @@
 		return vysledek;
 	}
 
+	
 	function kontrola() {
 		if (cinitel1 * cinitel2 == vysledek2) {
 			body = body + 1;
-			cinitel1 = Math.floor(Math.random() * 10 + 1);
-			cinitel2 = Math.floor(Math.random() * 10 + 1);
+			zobrazeniKontroly = 1
+			if (stopky) clearTimeout(stopky);
+			stopky = setTimeout(resetPrikladu, 2000);
+			
 		} else {
 			body = body;
-			cinitel1 = Math.floor(Math.random() * 10 + 1);
-			cinitel2 = Math.floor(Math.random() * 10 + 1);
+			zobrazeniKontroly = 1
+			if (stopky) clearTimeout(stopky);
+			stopky = setTimeout(resetPrikladu, 2000)
+			
 		}
 		return body;
+	}
+
+	function resetPrikladu () {
+		zobrazeniKontroly = 0
+		cinitel1 = Math.floor(Math.random() * 10 + 1);
+		cinitel2 = Math.floor(Math.random() * 10 + 1);
 	}
 </script>
 
@@ -72,10 +85,13 @@
 
 <button class="tlacitko" on:click={kontrola}>Kontrola</button>
 
-{#if cinitel1 * cinitel2 == vysledek2}
-	<p class="green">správně</p>
-{:else}
-	<p class="red">špatně</p>
+{#if zobrazeniKontroly = 1}
+
+	{#if cinitel1 * cinitel2 == vysledek2}
+		<p class="green">správně</p>
+	{:else}
+		<p class="red">špatně</p>
+	{/if}
 {/if}
 
 Počet bodů
