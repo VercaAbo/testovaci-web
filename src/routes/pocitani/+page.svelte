@@ -78,14 +78,14 @@
 <br />
 <br />
 
-<div class="zadani">
-	<p>{cinitel1}*{cinitel2}</p>
-</div>
+<div class="radekPrikladu">
+<p class="zadani">{cinitel1} * {cinitel2} =</p>
 
-<input bind:value={vysledek2} type="number" on:keydown={kontrola}/>
+<input class="zadaniVysledku" bind:value={vysledek2} type="number" />
 
 <button class="tlacitko" on:click={kontrola}>Kontrola</button>
 
+</div>
 {#if zobrazeniKontroly == 1}
 
 	{#if cinitel1 * cinitel2 == vysledek2}
@@ -103,6 +103,9 @@ Počet bodů
 		background-color: rgb(255, 255, 255);
 	}
 
+	.radekPrikladu {
+		display: flex;
+	}
 	.nadpis1 {
 		color: black;
 		font-size: 60px;
@@ -122,6 +125,9 @@ Počet bodů
 		margin: 5px;
 	}
 
+	.zadaniVysledku {
+		width: 50px;
+	}
 	.blok1 {
 		display: flex;
 		flex-direction: column;
